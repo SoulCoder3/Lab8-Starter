@@ -82,7 +82,7 @@ async function getRecipes() {
   //            If there are recipes, return them.
   /**************************/
 
-  var recipes = localStorage.getItem("recipes");
+  let recipes = localStorage.getItem("recipes");
   if (recipes != null) {
     return eval(recipes);
   }
@@ -119,13 +119,13 @@ async function getRecipes() {
   // A10. TODO - Log any errors from catch using console.error
   // A11. TODO - Pass any errors to the Promise's reject() function
 
-  var newRecipes = [];
+  let newRecipes = [];
   return new Promise(async (resolve, reject) => {
     try {
-      for (var url of RECIPE_URLS) {
+      for (let url of RECIPE_URLS) {
         try {
-          var response = await fetch(url);
-          var recipe = await response.json();
+          let response = await fetch(url);
+          let recipe = await response.json();
           newRecipes.push(recipe);
         } catch (e) { 
           console.error(e);
